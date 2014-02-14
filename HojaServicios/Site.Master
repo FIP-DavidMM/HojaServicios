@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HojaServicios.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9, IE=10">
+    <title><%: Page.Title %></title>
+    <asp:PlaceHolder runat="server">     
+          <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>  
+    <webopt:BundleReference runat="server" Path="~/Content/css" /> 
+    <link href="/Images/ponal.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+    <script src="http://js.arcgis.com/3.8/" ></script>
+    <meta name="viewport" content="width=device-width" />
+    <script>var dojoConfig = { parseOnLoad: true };</script>
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body class="claro">
+    <form id="Form1" runat="server">
+        <table style="border:hidden; width:92%; position:absolute; left:4%;">
+            <tr>
+                <td colspan="2" style="border:hidden;">
+                    <asp:ContentPlaceHolder ID="cphEncabezado" runat="server"></asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td style="border:hidden;"><asp:ContentPlaceHolder ID="cphLblEstacion" runat="server"></asp:ContentPlaceHolder></td>
+                <td style="border:hidden; width:40%;"><asp:ContentPlaceHolder ID="cphTblCuadrante" runat="server"></asp:ContentPlaceHolder></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border:hidden;"><asp:ContentPlaceHolder ID="cphLblSemanas" runat="server"></asp:ContentPlaceHolder></td>
+            </tr>
+            <tr>
+                <td style="border:hidden;"><asp:ContentPlaceHolder ID="cphTblDelitos" runat="server"></asp:ContentPlaceHolder></td>
+                <td style="border:hidden;" rowspan="3"><div style="margin-left:30px;"><asp:ContentPlaceHolder ID="cphGraficoEstadisticas" runat="server"></asp:ContentPlaceHolder></div></td>
+            </tr>
+            <tr>
+                <td style="border:hidden;"><asp:ContentPlaceHolder ID="cphTblOtrasProblematicas" runat="server"></asp:ContentPlaceHolder></td>
+            </tr>
+            <tr>
+                <td style="border:hidden;"><asp:ContentPlaceHolder ID="cphTblResultadosOperativos" runat="server"></asp:ContentPlaceHolder></td>
+            </tr>
+            <tr>
+                <td style="border:hidden;" colspan="2">
+                    <asp:ContentPlaceHolder ID="cphLblEstadisticoDelincuencial" runat="server"></asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td style="border:hidden;" colspan="2">
+                    <asp:ContentPlaceHolder ID="cphTblEstadisticoDelincuencial" runat="server"></asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td style="border:hidden;" colspan="2">
+                    <asp:ContentPlaceHolder ID="cphLblGeorreferenciacion" runat="server"></asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td style="border:hidden;" colspan="2">
+                    <asp:ContentPlaceHolder ID="cphImgGeorreferenciacionDelitos" runat="server"></asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

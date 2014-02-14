@@ -1,0 +1,87 @@
+﻿table {
+    border-collapse:collapse;
+    border:hidden;
+    font-family:Arial;
+    font-size:smaller;
+    width:100%;
+}
+
+td {
+    margin:0px; 
+    padding:0px;
+}
+
+.tblBordes {
+    border:solid;
+    padding:0px;
+    border-spacing:0px;
+    margin:0px;
+    border-width:1px;
+}
+
+.tdTblEst {
+    width:35px;
+    align-content:center;
+    border:solid;
+    border-width:1px;
+}
+
+.tdTblEstImp {
+    width:35px;
+    align-content:center;
+    border:solid;
+    border-width:1px;
+    background-color:#cfcfcf;
+}
+
+.tdHeadTblEst {
+    background-color:green;
+    border-color:black;
+    border:solid;
+    font-size:small;
+    padding:0px;
+    margin:0px;
+    text-align:center;
+}
+
+.tdTitTablas {
+    background-color:#ebf1de;
+    border-color:black;
+    border:solid;
+    font-size:small;
+    padding:0px;
+    width:80px;
+}
+
+p {
+    margin:0px;
+    padding:0px;
+    border:0px;
+}
+
+.pTitTblEst {
+    color:white;
+    font-size:x-small;
+    width:80px;
+    margin:0px;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+.pEstDelitos {
+    text-align:center;
+}
+
+.pHorasEstaAnalisis {
+    color:white;
+    font-size:x-small;
+}
+#mapDiv {
+    padding:0px;
+    margin:0px;
+}
+
+
+
+

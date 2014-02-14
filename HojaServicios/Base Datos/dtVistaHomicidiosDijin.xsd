@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtVistaHomicidiosDijin" targetNamespace="http://tempuri.org/dtVistaHomicidiosDijin.xsd" xmlns:mstns="http://tempuri.org/dtVistaHomicidiosDijin.xsd" xmlns="http://tempuri.org/dtVistaHomicidiosDijin.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionString.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_HOJA_HOMICIDIOSTableAdapter" GeneratorDataComponentClassName="V_HOJA_HOMICIDIOSTableAdapter" Name="V_HOJA_HOMICIDIOS" UserDataComponentName="V_HOJA_HOMICIDIOSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="SIVICC2.V_HOJA_HOMICIDIOS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT CUADRANTE
+FROM            V_HOJA_HOMICIDIOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CUADRANTE" DataSetColumn="CUADRANTE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_HOJA_HOMICIDIOS1TableAdapter" GeneratorDataComponentClassName="V_HOJA_HOMICIDIOS1TableAdapter" Name="V_HOJA_HOMICIDIOS1" UserDataComponentName="V_HOJA_HOMICIDIOS1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="SIVICC2.V_HOJA_HOMICIDIOS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CUADRANTE, HECH_HORA, FECHA_HECHO, HECH_LATITUD, HECH_LONGITUD, DIRECCION, CONDUCTA, CANTIDAD
+FROM            V_HOJA_HOMICIDIOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CUADRANTE" DataSetColumn="CUADRANTE" />
+              <Mapping SourceColumn="HECH_HORA" DataSetColumn="HECH_HORA" />
+              <Mapping SourceColumn="FECHA_HECHO" DataSetColumn="FECHA_HECHO" />
+              <Mapping SourceColumn="HECH_LATITUD" DataSetColumn="HECH_LATITUD" />
+              <Mapping SourceColumn="HECH_LONGITUD" DataSetColumn="HECH_LONGITUD" />
+              <Mapping SourceColumn="DIRECCION" DataSetColumn="DIRECCION" />
+              <Mapping SourceColumn="CONDUCTA" DataSetColumn="CONDUCTA" />
+              <Mapping SourceColumn="CANTIDAD" DataSetColumn="CANTIDAD" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCuadrante" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCuadrante" GeneratorSourceName="FillByCuadrante" GetMethodModifier="Public" GetMethodName="GetDataByCuadrante" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCuadrante" UserSourceName="FillByCuadrante">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        SUM(CANTIDAD) AS CANT_HOMICIDIOS
+FROM            V_HOJA_HOMICIDIOS
+WHERE        (CUADRANTE = :cuadrante) AND (FECHA_HECHO BETWEEN CURRENT_DATE - 8 AND CURRENT_DATE)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="cuadrante" ColumnName="CUADRANTE" DataSourceName="SIVICC2.V_HOJA_HOMICIDIOS" DataTypeServer="DbType.AnsiStringFixedLength(180)" DbType="AnsiString" Direction="Input" ParameterName="CUADRANTE" Precision="0" ProviderType="Char" Scale="0" Size="180" SourceColumn="CUADRANTE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DELITOSTableAdapter" GeneratorDataComponentClassName="DELITOSTableAdapter" Name="DELITOS" UserDataComponentName="DELITOSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="SIVICC2.DELITOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM "DELITOS" WHERE (("ID_DELITO" = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_ID_DELITO" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_DELITO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO "DELITOS" ("ID_DELITO", "NOM_DELITO") VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="ID_DELITO" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_DELITO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="NOM_DELITO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NOM_DELITO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        * FROM            DELITOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE "DELITOS" SET "ID_DELITO" = ?, "NOM_DELITO" = ? WHERE (("ID_DELITO" = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="ID_DELITO" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_DELITO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="NOM_DELITO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NOM_DELITO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_ID_DELITO" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_DELITO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_DELITO" DataSetColumn="ID_DELITO" />
+              <Mapping SourceColumn="NOM_DELITO" DataSetColumn="NOM_DELITO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CONTRAVENCIONESTableAdapter" GeneratorDataComponentClassName="CONTRAVENCIONESTableAdapter" Name="CONTRAVENCIONES" UserDataComponentName="CONTRAVENCIONESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="SIVICC2.CONTRAVENCIONES" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM "SIVICC2"."CONTRAVENCIONES" WHERE (("ID_CONTRAVENCION" = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_ID_CONTRAVENCION" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_CONTRAVENCION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO "SIVICC2"."CONTRAVENCIONES" ("ID_CONTRAVENCION", "NOM_CONTRAVENCION") VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="ID_CONTRAVENCION" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_CONTRAVENCION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="NOM_CONTRAVENCION" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NOM_CONTRAVENCION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT "ID_CONTRAVENCION", "NOM_CONTRAVENCION" FROM "SIVICC2"."CONTRAVENCIONES"</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE "SIVICC2"."CONTRAVENCIONES" SET "ID_CONTRAVENCION" = ?, "NOM_CONTRAVENCION" = ? WHERE (("ID_CONTRAVENCION" = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="ID_CONTRAVENCION" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_CONTRAVENCION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="NOM_CONTRAVENCION" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NOM_CONTRAVENCION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_ID_CONTRAVENCION" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ID_CONTRAVENCION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_CONTRAVENCION" DataSetColumn="ID_CONTRAVENCION" />
+              <Mapping SourceColumn="NOM_CONTRAVENCION" DataSetColumn="NOM_CONTRAVENCION" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="SELECT dbms_random.normal, 'cuad' AS cuadrante, 1 AS EXPR1, 1 AS EXPR2, 1 AS EXPR3, 1 AS EXPR4, 4 AS EXPR5, 550 AS EXPR6, 0.52 AS EXPR7 FROM SYS.DUAL" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM (SELECT     dbms_random.normal,   'cuad' AS cuadrante, 1 AS EXPR1, 1 AS EXPR2, 1 AS EXPR3, 1 AS EXPR4, 4 AS EXPR5, 550 AS EXPR6, 0.52 AS EXPR7
+FROM            SYS.DUAL) WHERE cuadrante like :CUA
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CUA" ColumnName="cuadrante" DataSourceName="SELECT dbms_random.normal, 'cuad' AS cuadrante, 1 AS EXPR1, 1 AS EXPR2, 1 AS EXPR3, 1 AS EXPR4, 4 AS EXPR5, 550 AS EXPR6, 0.52 AS EXPR7 FROM SYS.DUAL" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="cuadrante" Precision="0" Scale="0" Size="1024" SourceColumn="cuadrante" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NORMAL" DataSetColumn="NORMAL" />
+              <Mapping SourceColumn="CUADRANTE" DataSetColumn="CUADRANTE" />
+              <Mapping SourceColumn="EXPR1" DataSetColumn="EXPR1" />
+              <Mapping SourceColumn="EXPR2" DataSetColumn="EXPR2" />
+              <Mapping SourceColumn="EXPR3" DataSetColumn="EXPR3" />
+              <Mapping SourceColumn="EXPR4" DataSetColumn="EXPR4" />
+              <Mapping SourceColumn="EXPR5" DataSetColumn="EXPR5" />
+              <Mapping SourceColumn="EXPR6" DataSetColumn="EXPR6" />
+              <Mapping SourceColumn="EXPR7" DataSetColumn="EXPR7" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="SIVICC2.V_HOJA_HOMICIDIOS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByC" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByC" GeneratorSourceName="FillByC" GetMethodModifier="Public" GetMethodName="GetDataByC" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByC" UserSourceName="FillByC">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        1 AS EXPR7, CUADRANTE, SUM(CANTIDAD) AS CANT_HOMICIDIOS, 1 AS EXPR1, 1 AS EXPR2, 1 AS EXPR3, 1 AS EXPR4, 1 AS EXPR5, 1 AS EXPR6
+FROM            V_HOJA_HOMICIDIOS
+WHERE        (CUADRANTE = :cuadrante) AND (FECHA_HECHO BETWEEN CURRENT_DATE - 8 AND CURRENT_DATE)
+GROUP BY CUADRANTE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="cuadrante" ColumnName="CUADRANTE" DataSourceName="SIVICC2.V_HOJA_HOMICIDIOS" DataTypeServer="DbType.AnsiStringFixedLength(180)" DbType="AnsiString" Direction="Input" ParameterName="CUADRANTE" Precision="0" ProviderType="Char" Scale="0" Size="180" SourceColumn="CUADRANTE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtVistaHomicidiosDijin" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtVistaHomicidiosDijin" msprop:Generator_UserDSName="dtVistaHomicidiosDijin">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_HOJA_HOMICIDIOS" msprop:Generator_TableClassName="V_HOJA_HOMICIDIOSDataTable" msprop:Generator_TableVarName="tableV_HOJA_HOMICIDIOS" msprop:Generator_TablePropName="V_HOJA_HOMICIDIOS" msprop:Generator_RowDeletingName="V_HOJA_HOMICIDIOSRowDeleting" msprop:Generator_RowChangingName="V_HOJA_HOMICIDIOSRowChanging" msprop:Generator_RowEvHandlerName="V_HOJA_HOMICIDIOSRowChangeEventHandler" msprop:Generator_RowDeletedName="V_HOJA_HOMICIDIOSRowDeleted" msprop:Generator_UserTableName="V_HOJA_HOMICIDIOS" msprop:Generator_RowChangedName="V_HOJA_HOMICIDIOSRowChanged" msprop:Generator_RowEvArgName="V_HOJA_HOMICIDIOSRowChangeEvent" msprop:Generator_RowClassName="V_HOJA_HOMICIDIOSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CUADRANTE" msprop:Generator_ColumnVarNameInTable="columnCUADRANTE" msprop:Generator_ColumnPropNameInRow="CUADRANTE" msprop:Generator_ColumnPropNameInTable="CUADRANTEColumn" msprop:Generator_UserColumnName="CUADRANTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_HOJA_HOMICIDIOS1" msprop:Generator_TableClassName="V_HOJA_HOMICIDIOS1DataTable" msprop:Generator_TableVarName="tableV_HOJA_HOMICIDIOS1" msprop:Generator_TablePropName="V_HOJA_HOMICIDIOS1" msprop:Generator_RowDeletingName="V_HOJA_HOMICIDIOS1RowDeleting" msprop:Generator_RowChangingName="V_HOJA_HOMICIDIOS1RowChanging" msprop:Generator_RowEvHandlerName="V_HOJA_HOMICIDIOS1RowChangeEventHandler" msprop:Generator_RowDeletedName="V_HOJA_HOMICIDIOS1RowDeleted" msprop:Generator_UserTableName="V_HOJA_HOMICIDIOS1" msprop:Generator_RowChangedName="V_HOJA_HOMICIDIOS1RowChanged" msprop:Generator_RowEvArgName="V_HOJA_HOMICIDIOS1RowChangeEvent" msprop:Generator_RowClassName="V_HOJA_HOMICIDIOS1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CUADRANTE" msprop:Generator_ColumnVarNameInTable="columnCUADRANTE" msprop:Generator_ColumnPropNameInRow="CUADRANTE" msprop:Generator_ColumnPropNameInTable="CUADRANTEColumn" msprop:Generator_UserColumnName="CUADRANTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HECH_HORA" msprop:Generator_ColumnVarNameInTable="columnHECH_HORA" msprop:Generator_ColumnPropNameInRow="HECH_HORA" msprop:Generator_ColumnPropNameInTable="HECH_HORAColumn" msprop:Generator_UserColumnName="HECH_HORA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FECHA_HECHO" msprop:Generator_ColumnVarNameInTable="columnFECHA_HECHO" msprop:Generator_ColumnPropNameInRow="FECHA_HECHO" msprop:Generator_ColumnPropNameInTable="FECHA_HECHOColumn" msprop:Generator_UserColumnName="FECHA_HECHO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="HECH_LATITUD" msprop:Generator_ColumnVarNameInTable="columnHECH_LATITUD" msprop:Generator_ColumnPropNameInRow="HECH_LATITUD" msprop:Generator_ColumnPropNameInTable="HECH_LATITUDColumn" msprop:Generator_UserColumnName="HECH_LATITUD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HECH_LONGITUD" msprop:Generator_ColumnVarNameInTable="columnHECH_LONGITUD" msprop:Generator_ColumnPropNameInRow="HECH_LONGITUD" msprop:Generator_ColumnPropNameInTable="HECH_LONGITUDColumn" msprop:Generator_UserColumnName="HECH_LONGITUD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DIRECCION" msprop:Generator_ColumnVarNameInTable="columnDIRECCION" msprop:Generator_ColumnPropNameInRow="DIRECCION" msprop:Generator_ColumnPropNameInTable="DIRECCIONColumn" msprop:Generator_UserColumnName="DIRECCION" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONDUCTA" msprop:Generator_ColumnVarNameInTable="columnCONDUCTA" msprop:Generator_ColumnPropNameInRow="CONDUCTA" msprop:Generator_ColumnPropNameInTable="CONDUCTAColumn" msprop:Generator_UserColumnName="CONDUCTA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_UserColumnName="CANTIDAD" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DELITOS" msprop:Generator_TableClassName="DELITOSDataTable" msprop:Generator_TableVarName="tableDELITOS" msprop:Generator_TablePropName="DELITOS" msprop:Generator_RowDeletingName="DELITOSRowDeleting" msprop:Generator_RowChangingName="DELITOSRowChanging" msprop:Generator_RowEvHandlerName="DELITOSRowChangeEventHandler" msprop:Generator_RowDeletedName="DELITOSRowDeleted" msprop:Generator_UserTableName="DELITOS" msprop:Generator_RowChangedName="DELITOSRowChanged" msprop:Generator_RowEvArgName="DELITOSRowChangeEvent" msprop:Generator_RowClassName="DELITOSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_DELITO" msprop:Generator_ColumnVarNameInTable="columnID_DELITO" msprop:Generator_ColumnPropNameInRow="ID_DELITO" msprop:Generator_ColumnPropNameInTable="ID_DELITOColumn" msprop:Generator_UserColumnName="ID_DELITO" type="xs:double" />
+              <xs:element name="NOM_DELITO" msprop:Generator_ColumnVarNameInTable="columnNOM_DELITO" msprop:Generator_ColumnPropNameInRow="NOM_DELITO" msprop:Generator_ColumnPropNameInTable="NOM_DELITOColumn" msprop:Generator_UserColumnName="NOM_DELITO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CONTRAVENCIONES" msprop:Generator_TableClassName="CONTRAVENCIONESDataTable" msprop:Generator_TableVarName="tableCONTRAVENCIONES" msprop:Generator_TablePropName="CONTRAVENCIONES" msprop:Generator_RowDeletingName="CONTRAVENCIONESRowDeleting" msprop:Generator_RowChangingName="CONTRAVENCIONESRowChanging" msprop:Generator_RowEvHandlerName="CONTRAVENCIONESRowChangeEventHandler" msprop:Generator_RowDeletedName="CONTRAVENCIONESRowDeleted" msprop:Generator_UserTableName="CONTRAVENCIONES" msprop:Generator_RowChangedName="CONTRAVENCIONESRowChanged" msprop:Generator_RowEvArgName="CONTRAVENCIONESRowChangeEvent" msprop:Generator_RowClassName="CONTRAVENCIONESRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_CONTRAVENCION" msprop:Generator_ColumnVarNameInTable="columnID_CONTRAVENCION" msprop:Generator_ColumnPropNameInRow="ID_CONTRAVENCION" msprop:Generator_ColumnPropNameInTable="ID_CONTRAVENCIONColumn" msprop:Generator_UserColumnName="ID_CONTRAVENCION" type="xs:double" />
+              <xs:element name="NOM_CONTRAVENCION" msprop:Generator_ColumnVarNameInTable="columnNOM_CONTRAVENCION" msprop:Generator_ColumnPropNameInRow="NOM_CONTRAVENCION" msprop:Generator_ColumnPropNameInTable="NOM_CONTRAVENCIONColumn" msprop:Generator_UserColumnName="NOM_CONTRAVENCION" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NORMAL" msprop:Generator_ColumnVarNameInTable="columnNORMAL" msprop:Generator_ColumnPropNameInRow="NORMAL" msprop:Generator_ColumnPropNameInTable="NORMALColumn" msprop:Generator_UserColumnName="NORMAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CUADRANTE" msprop:Generator_ColumnVarNameInTable="columnCUADRANTE" msprop:Generator_ColumnPropNameInRow="CUADRANTE" msprop:Generator_ColumnPropNameInTable="CUADRANTEColumn" msprop:Generator_UserColumnName="CUADRANTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXPR1" msprop:Generator_ColumnVarNameInTable="columnEXPR1" msprop:Generator_ColumnPropNameInRow="EXPR1" msprop:Generator_ColumnPropNameInTable="EXPR1Column" msprop:Generator_UserColumnName="EXPR1" type="xs:double" minOccurs="0" />
+              <xs:element name="EXPR2" msprop:Generator_ColumnVarNameInTable="columnEXPR2" msprop:Generator_ColumnPropNameInRow="EXPR2" msprop:Generator_ColumnPropNameInTable="EXPR2Column" msprop:Generator_UserColumnName="EXPR2" type="xs:double" minOccurs="0" />
+              <xs:element name="EXPR3" msprop:Generator_ColumnVarNameInTable="columnEXPR3" msprop:Generator_ColumnPropNameInRow="EXPR3" msprop:Generator_ColumnPropNameInTable="EXPR3Column" msprop:Generator_UserColumnName="EXPR3" type="xs:double" minOccurs="0" />
+              <xs:element name="EXPR4" msprop:Generator_ColumnVarNameInTable="columnEXPR4" msprop:Generator_ColumnPropNameInRow="EXPR4" msprop:Generator_ColumnPropNameInTable="EXPR4Column" msprop:Generator_UserColumnName="EXPR4" type="xs:double" minOccurs="0" />
+              <xs:element name="EXPR5" msprop:Generator_ColumnVarNameInTable="columnEXPR5" msprop:Generator_ColumnPropNameInRow="EXPR5" msprop:Generator_ColumnPropNameInTable="EXPR5Column" msprop:Generator_UserColumnName="EXPR5" type="xs:double" minOccurs="0" />
+              <xs:element name="EXPR6" msprop:Generator_ColumnVarNameInTable="columnEXPR6" msprop:Generator_ColumnPropNameInRow="EXPR6" msprop:Generator_ColumnPropNameInTable="EXPR6Column" msprop:Generator_UserColumnName="EXPR6" type="xs:double" minOccurs="0" />
+              <xs:element name="EXPR7" msprop:Generator_ColumnVarNameInTable="columnEXPR7" msprop:Generator_ColumnPropNameInRow="EXPR7" msprop:Generator_ColumnPropNameInTable="EXPR7Column" msprop:Generator_UserColumnName="EXPR7" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DELITOS" />
+      <xs:field xpath="mstns:ID_DELITO" />
+    </xs:unique>
+    <xs:unique name="CONTRAVENCIONES_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CONTRAVENCIONES" />
+      <xs:field xpath="mstns:ID_CONTRAVENCION" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

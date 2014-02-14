@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtBDDijin" targetNamespace="http://tempuri.org/dtBDDijin.xsd" xmlns:mstns="http://tempuri.org/dtBDDijin.xsd" xmlns="http://tempuri.org/dtBDDijin.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionStringDijin" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionStringDijin (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionStringDijin.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtSemanasDijinTableAdapter" GeneratorDataComponentClassName="dtSemanasDijinTableAdapter" Name="dtSemanasDijin" UserDataComponentName="dtSemanasDijinTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionStringDijin (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        1 AS semana_PERIODO
+FROM            PERIODO_COMITE P
+WHERE        (TIPO = 'S') AND (UNIDADES_DEPENDENCIA_DPTO_ID = 1523) AND (FECHA_INICIA &lt; CURRENT_DATE)
+ORDER BY FECHA_INICIA DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SEMANA_PERIODO" DataSetColumn="SEMANA_PERIODO" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionStringDijin (Web.config)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAnioPeriodo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAnioPeriodo" GeneratorSourceName="FillByAnioPeriodo" GetMethodModifier="Public" GetMethodName="GetDataByAnioPeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAnioPeriodo" UserSourceName="FillByAnioPeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select *  from (
+SELECT p.*,pk_heade.SEMANA_ANIO_PERIODO(fecha_inicia) 
+   FROM periodo_comite p     
+   WHERE TIPO = 'S' AND UNIDADES_DEPENDENCIA_DPTO_ID = 1523 
+   AND fecha_inicia &lt; SYSDATE
+   ORDER BY p.fecha_inicia DESC)
+   WHERE ROWNUM &lt; 5;</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtBDDijin" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtBDDijin" msprop:Generator_UserDSName="dtBDDijin">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtSemanasDijin" msprop:Generator_TableClassName="dtSemanasDijinDataTable" msprop:Generator_TableVarName="tabledtSemanasDijin" msprop:Generator_TablePropName="dtSemanasDijin" msprop:Generator_RowDeletingName="dtSemanasDijinRowDeleting" msprop:Generator_RowChangingName="dtSemanasDijinRowChanging" msprop:Generator_RowEvHandlerName="dtSemanasDijinRowChangeEventHandler" msprop:Generator_RowDeletedName="dtSemanasDijinRowDeleted" msprop:Generator_UserTableName="dtSemanasDijin" msprop:Generator_RowChangedName="dtSemanasDijinRowChanged" msprop:Generator_RowEvArgName="dtSemanasDijinRowChangeEvent" msprop:Generator_RowClassName="dtSemanasDijinRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SEMANA_PERIODO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSEMANA_PERIODO" msprop:Generator_ColumnPropNameInRow="SEMANA_PERIODO" msprop:Generator_ColumnPropNameInTable="SEMANA_PERIODOColumn" msprop:Generator_UserColumnName="SEMANA_PERIODO" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
